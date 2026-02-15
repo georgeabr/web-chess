@@ -1,5 +1,6 @@
 # web-chess
 Web chess with python server, stockfish engine and html frontend  
+![Chess game screenshot showing the web interface](Screenshot_20260215_194133.png)  
 ### The chess engine
 #### Clone the `stockfish` chess engine
 ```sh
