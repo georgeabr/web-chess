@@ -1,5 +1,6 @@
 # web-chess
 Web chess with python server, stockfish engine and html frontend  
+### The chess engine
 #### Clone the `stockfish` chess engine
 ```sh
 git clone https://github.com/official-stockfish/Stockfish
@@ -17,4 +18,14 @@ grep -nR --include=\*.{cpp,h} -e "LimitStrength" -e "UCI_LimitStrength" -e "Elo"
 ```sh
 make -C src build ARCH=x86-64 -j$(nproc)
 sudo make -C src install
+```
+### The client/server side
+#### The python web server - start it
+```sh
+python3 chess_server.py
+```
+#### The client - connect
+Use a web browser to connect to the URL
+```
+http://localhost:5000
 ```
