@@ -9,11 +9,16 @@ cd Stockfish
 ```
 #### Adjust the difficulty settings
 ```sh
-grep -nR --include=\*.{cpp,h} -e "LimitStrength" -e "UCI_LimitStrength" -e "Elo" -e "Skill Level" . 
-sed -i 's/constexpr static int LowestElo  = 1320;/constexpr static int LowestElo  = 1;/' src/search.h
-sed -i 's/options.add("Skill Level", Option(20, 0, 20));/options.add("Skill Level", Option(1, 0, 20));/' src/engine.cpp
-sed -i 's/options.add("UCI_LimitStrength", Option(false));/options.add("UCI_LimitStrength", Option(true));/' src/engine.cpp
-grep -nR --include=\*.{cpp,h} -e "LimitStrength" -e "UCI_LimitStrength" -e "Elo" -e "Skill Level" . 
+grep -nR --include=\*.{cpp,h} -e "LimitStrength" \
+  -e "UCI_LimitStrength" -e "Elo" -e "Skill Level" . 
+sed -i 's/constexpr static int LowestElo  = 1320;/\
+  constexpr static int LowestElo  = 1;/' src/search.h
+sed -i 's/options.add("Skill Level", Option(20, 0, 20));/\
+  options.add("Skill Level", Option(1, 0, 20));/' src/engine.cpp
+sed -i 's/options.add("UCI_LimitStrength", Option(false));/\
+  options.add("UCI_LimitStrength", Option(true));/' src/engine.cpp
+grep -nR --include=\*.{cpp,h} -e "LimitStrength" \
+  -e "UCI_LimitStrength" -e "Elo" -e "Skill Level" . 
 ```
 #### Compile and install the binary
 ```sh
